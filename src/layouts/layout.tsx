@@ -1,11 +1,12 @@
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+import { Provider } from "react-redux";
+import store from "@/store";
+import "@/styles/style.css";
+import { NavbarComponent } from "@/components";
+
+export default function Layout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <Provider store={store}>
+      <NavbarComponent>{children}</NavbarComponent>
+    </Provider>
   );
 }
